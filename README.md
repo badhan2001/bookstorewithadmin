@@ -1,3 +1,6 @@
+ID- 21701013, 21701038, 21701079
+
+
 Project Name----BookAura
 
 Project Description----- It is a web application designed for managing a bookstore efficiently. It allows admins to add, edit, and remove books, view all orders, and manage users in a centralized dashboard. The frontend is built with React.js (using Vite) for a fast and responsive user interface, while the backend uses Node.js and Express.js to handle API requests and interact with a MongoDB database. This project streamlines bookstore management and provides a user-friendly experience for administrators.
