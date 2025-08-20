@@ -3,7 +3,7 @@ const router = express.Router();
 const {authenticateToken}=require("./userAuth");
 const Book=require("../models/book");
 const Order=require("../models/order");
-const User=require("../models/User");
+const User=require("../models/user");
 
 
 router.post("/place-order",authenticateToken,async(req,res)=>{

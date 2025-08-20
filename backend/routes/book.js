@@ -1,7 +1,7 @@
 //const router = require ("express").Router();
 const express = require("express");
 const router = express.Router();
-const User=require("../models/User");
+const User=require("../models/user");
 const jwt=require("jsonwebtoken");
 const Book=require("../models/book");
 const {authenticateToken}=require("./userAuth");
