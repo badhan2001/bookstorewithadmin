@@ -22,7 +22,8 @@ const SignUp = () => {
     console.log('Submitting formData:', formData);
     try {
       const response = await axios.post(
-        "http://localhost:1000/api/v1/sign-up",
+         "http://localhost:1000/api/v1/sign-up",
+        // `${process.env.REACT_APP_API_URL}/api/v1/sign-up`,
         formData
       );
       alert(response.data.message);

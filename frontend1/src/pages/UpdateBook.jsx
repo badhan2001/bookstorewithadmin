@@ -40,7 +40,8 @@ const UpdateBook = () => {
         alert("All fields are required");
       } else {
         const response = await axios.put(
-          "http://localhost:1000/api/v1/update-book",
+           "http://localhost:1000/api/v1/update-book",
+          // `${process.env.REACT_APP_API_URL}/api/v1/update-book`,
           data,
           { headers }
         );
@@ -67,7 +68,8 @@ useEffect(() => {
 
       try {
         const response = await axios.get(
-          `http://localhost:1000/api/v1/get-book-by-id/${id}`,
+           `http://localhost:1000/api/v1/get-book-by-id/${id}`,
+          // `${process.env.REACT_APP_API_URL}/api/v1/get-book-by-id/${id}}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

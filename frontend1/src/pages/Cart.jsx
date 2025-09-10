@@ -18,7 +18,8 @@ const Cart = () => {
 
       try {
         const res = await axios.get(
-          "http://localhost:1000/api/v1/get-user-cart",
+           "http://localhost:1000/api/v1/get-user-cart",
+          // `${process.env.REACT_APP_API_URL}/api/v1/get-user-cart`,
           { headers }
         );
         setCart(res.data.data);
@@ -42,7 +43,8 @@ const Cart = () => {
     };
 
     const response = await axios.delete(
-      `http://localhost:1000/api/v1/remove-from-cart/${bookid}`,
+       `http://localhost:1000/api/v1/remove-from-cart/${bookid}`,
+      // `${process.env.REACT_APP_API_URL}/api/v1/remove-from-cart/${bookid}`,
       { headers }
     );
 
@@ -74,7 +76,8 @@ const PlaceOrder=async()=>{
   };
   try{
     const response=await axios.post(
-      `http://localhost:1000/api/v1/place-order`,
+       `http://localhost:1000/api/v1/place-order`,
+      // `${process.env.REACT_APP_API_URL}/api/v1/place-order`,
       {order:Cart},
       {headers}
     );

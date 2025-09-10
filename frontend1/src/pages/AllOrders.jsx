@@ -22,7 +22,8 @@ const AllOrders = () => {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:1000/api/v1/get-all-orders",
+           "http://localhost:1000/api/v1/get-all-orders",
+          //  `${process.env.REACT_APP_API_URL}/api/v1/get-all-orders`,
           { headers }
         );
         let orders = response.data.data || [];
@@ -56,6 +57,7 @@ const AllOrders = () => {
     try {
       await axios.put(
         `http://localhost:1000/api/v1/update-status/${orderId}`,
+        // `${process.env.REACT_APP_API_URL}/api/v1/update-status/${orderId}`,
         { status: selectedStatus },
         { headers }
       );

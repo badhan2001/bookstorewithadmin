@@ -16,6 +16,7 @@ const Profile = () => {
     const fetch=async()=>{
        const response=await axios.get(
          "http://localhost:1000/api/v1/get-user-information",
+        // `${process.env.REACT_APP_API_URL}/api/v1/get-user-information`,
          {headers}
        );
        //console.log(response.data);
