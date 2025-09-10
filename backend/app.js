@@ -17,7 +17,14 @@ require("./conn/conn");
 // // app.get("/" ,(req,res) => {
 // //     res.send("Hello from backend side");
 // // });
-app.use(cors());
+// app.use(cors());
+
+app.use(cors({
+  origin: ['https://resonant-sherbet-4dd97f.netlify.app', 'http://localhost:5173'],
+  credentials: true
+}));
+
+
 app.use(express.json());
 
 
