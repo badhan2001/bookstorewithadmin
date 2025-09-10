@@ -19,54 +19,54 @@ const Login = () => {
     });
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  //   try {
-  //     const response = await axios.post(
-  //        "http://localhost:1000/api/v1/sign-in",
-  //       // `${process.env.REACT_APP_API_URL}/api/v1/sign-in`,
-  //       formData
-  //     );
+    try {
+      const response = await axios.post(
+         "http://localhost:1000/api/v1/sign-in",
+        // `${process.env.REACT_APP_API_URL}/api/v1/sign-in`,
+        formData
+      );
 
-  //     console.log("✅ Login Success:", response.data);
+      console.log("✅ Login Success:", response.data);
         
 
-  //     dispatch(authAction.login());
-  //     dispatch(authAction.changeRole(response.data.role));
-  //     localStorage.setItem("token", response.data.token);
-  //     localStorage.setItem("userId", response.data.id);
-  //     localStorage.setItem("role", response.data.role);
+      dispatch(authAction.login());
+      dispatch(authAction.changeRole(response.data.role));
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userId", response.data.id);
+      localStorage.setItem("role", response.data.role);
 
-  //     navigate("/profile"); // Redirect to home or dashboard after login
-  //   } catch (err) {
-  //     alert(err.response?.data?.message || "Login failed. Please check your credentials.");
-  //   }
-  // };
+      navigate("/profile"); // Redirect to home or dashboard after login
+    } catch (err) {
+      alert(err.response?.data?.message || "Login failed. Please check your credentials.");
+    }
+  };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
 
-  try {
-    const response = await axios.post(
-      `${import.meta.env.VITE_API_URL}/api/v1/sign-in`, // <-- use your Netlify env variable
-      formData,
-      { withCredentials: true } // <-- send cookies if your backend uses sessions
-    );
+//   try {
+//     const response = await axios.post(
+//       `${import.meta.env.VITE_API_URL}/api/v1/sign-in`, // <-- use your Netlify env variable
+//       formData,
+//       { withCredentials: true } // <-- send cookies if your backend uses sessions
+//     );
 
-    console.log("✅ Login Success:", response.data);
+//     console.log("✅ Login Success:", response.data);
 
-    dispatch(authAction.login());
-    dispatch(authAction.changeRole(response.data.role));
-    localStorage.setItem("token", response.data.token);
-    localStorage.setItem("userId", response.data.id);
-    localStorage.setItem("role", response.data.role);
+//     dispatch(authAction.login());
+//     dispatch(authAction.changeRole(response.data.role));
+//     localStorage.setItem("token", response.data.token);
+//     localStorage.setItem("userId", response.data.id);
+//     localStorage.setItem("role", response.data.role);
 
-    navigate("/profile"); // Redirect after login
-  } catch (err) {
-    alert(err.response?.data?.message || "Login failed. Please check your credentials.");
-  }
-};
+//     navigate("/profile"); // Redirect after login
+//   } catch (err) {
+//     alert(err.response?.data?.message || "Login failed. Please check your credentials.");
+//   }
+// };
 
 
 
