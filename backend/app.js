@@ -34,7 +34,7 @@ app.use(express.json());
  app.use("/api/v1",CartRoutes);
  app.use("/api/v1",OrderRoutes);
  
- 
+ const PORT = process.env.PORT || 5000;
 app.listen(process.env.PORT,()=>{
     console.log(`Server Started at port ${process.env.PORT}`);
 
