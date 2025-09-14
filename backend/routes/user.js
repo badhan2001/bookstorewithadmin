@@ -163,20 +163,22 @@ router.post("/sign-in", async (req, res) => {
 // });
 router.get("/get-user-information", authenticateToken, async (req, res) => {
   try {
-    const userId = req.userId;  // get userId from authenticated request
+    // Get id from headers or from authenticateToken middleware
+    const userId = req.headers.id || req.userId;
+
     if (!userId) {
-      return res.status(400).json({ message: "User ID missing from token" });
+      return res.status(400).json({ message: "User ID missing" });
     }
 
     const data = await User.findById(userId).select("-password");
-
+    
     if (!data) {
       return res.status(404).json({ message: "User not found" });
     }
 
     return res.status(200).json(data);
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching user info:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 });

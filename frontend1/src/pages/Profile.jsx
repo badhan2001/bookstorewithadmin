@@ -8,23 +8,25 @@ import MobileNav from '../components/Profile/MobileNav'
 const Profile = () => {
  // const isLoggedIn=useSelector();
  const[Profile,setProfile]=useState(null);
-  const headers={
-    id:localStorage.getItem("userId"),
-    authorization:`Bearer ${localStorage.getItem("token")}`,
-  }
-  useEffect(()=>{
-    const fetch=async()=>{
-       const response=await axios.get(
-         "http://localhost:1000/api/v1/get-user-information",
-        // `${process.env.REACT_APP_API_URL}/api/v1/get-user-information`,
-         {headers}
-       );
-       //console.log(response.data);
-       setProfile(response.data);
+  const headers = {
+    id: localStorage.getItem("userId"),
+    Authorization: `Bearer ${localStorage.getItem("token")}` // Use uppercase Authorization
+  };
+
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:1000/api/v1/get-user-information",
+          { headers }
+        );
+        setProfile(response.data);
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+      }
     };
     fetch();
-
-  },[]);
+  }, []);
   return (
     <div className="bg-zinc-900 px-2 md:px-12 flex flex-col md:flex-row  py-8 gap-4 text-white">
       {!Profile && (
